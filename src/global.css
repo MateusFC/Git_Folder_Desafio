@@ -1,0 +1,16 @@
+section#post{
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 30px;
+}
+section#post article{
+  border:1px #000;
+  background: #fff;
+  margin-top: 30px;
+  margin-bottom: 10px;
+}
+
+section#post article header{
+  padding: 20px;
+  display: flex;
+}
