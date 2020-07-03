@@ -7,7 +7,7 @@ import { BsFillFolderSymlinkFill } from 'react-icons/bs'
 const api = {
 	baseUrl: 'https://api.github.com',
 	user: 'camunda',
-} 
+}
 class Home extends Component {
 	constructor(props) {
 		super(props)
@@ -24,32 +24,25 @@ class Home extends Component {
 		})
 	}
 	componentDidMount() {
-		const user = this.props.match.params.user
-		if (user !== undefined) {
-			axios
-				.get(api.baseUrl + '/users/' + user + '/repos')
-				.then(res => {
+			const user = this.props.match.params.user
+			if (user !== undefined) {
+				axios.get(api.baseUrl + '/users/' + user + '/repos').then(res => {
 					console.log(res)
 					this.setState({ gitData: res.data, status: true })
 				})
-			axios
-				.get(api.baseUrl + '/users/' + user)
-				.then(res => {
+				axios.get(api.baseUrl + '/users/' + user).then(res => {
 					this.setState({ userArr: res.data })
 				})
-		} else {
-			axios
-				.get(api.baseUrl + '/users/' + api.user + '/repos')
-				.then(res => {
+			} else {
+				axios.get(api.baseUrl + '/users/' + api.user + '/repos').then(res => {
 					this.setState({ gitData: res.data })
 				})
-			axios
-				.get(api.baseUrl + '/users/' + api.user)
-				.then(res => {
+				axios.get(api.baseUrl + '/users/' + api.user).then(res => {
 					this.setState({ userArr: res.data })
 				})
+			}
 		}
-	}
+
 	renderCountry = country => {
 		return (
 			<li
@@ -87,18 +80,16 @@ class Home extends Component {
 						<img className='rounded-circle m-3' alt='' src={userArr.avatar_url} height='100' width='100' />
 						<div className='lh-100'>
 							<h6 className=' font-weight-bold mb-0 text-white 1h-100'>{userArr.login}</h6>
-							<small className="font-italic">{userArr.bio}</small>
+							<small className='font-italic'>{userArr.bio}</small>
 							<br />
-							<small className="font-italic">{userArr.public_repos} Publicações</small>
+							<small className='font-italic'>{userArr.public_repos} Publicações</small>
 							<br />
-							<small className="font-italic">{userArr.email}</small>
+							<small className='font-italic'>{userArr.email}</small>
 						</div>
 					</div>
 					<div className='mv-3 p-3 bg-white roundend shadow-sm '>
 						<nav className='navbar bg-dark rounded'>
-							<h6 className='font-weight-bold text-light pb-2 mb-0'>
-								 Respositórios
-							</h6>
+							<h6 className='font-weight-bold text-light pb-2 mb-0'>Respositórios</h6>
 							<form className='form-inline my-2 my-lg-0'>
 								<DebounceInput
 									className='font-weight-bold form-control mr-sm-2'
