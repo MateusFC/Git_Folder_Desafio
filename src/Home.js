@@ -50,7 +50,7 @@ class Home extends Component {
 				className='list-group-item bg-secondary col-12 d-row p-3 my-2 width-full py-4 rounded border-bottom'>
 				<div className='col-10 col-lg-9 d-inline-block'>
 					<h3 className='wb-break-a11'>
-						<a href={'#' + country.html_url} className='font-weight-bold d-block text-light'>
+						<a href={country.html_url} className='font-weight-bold d-block text-light'>
 							<BsFillFolderSymlinkFill />
 							{'  '}
 							{country.name}
